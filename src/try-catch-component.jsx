@@ -22,19 +22,20 @@ function createWrapper(funcName, onError) {
 }
 
 const lifeCycleMethods = [
-    createWrapper('render', function (e) {
+    createWrapper('render', function () {
         return (
             <span>Caught error!</span>
         );
-    })
+    }),
+
+    createWrapper('componentWillReceiveProps'),
+    createWrapper('shouldComponentUpdate'),
+    createWrapper('componentWillUpdate'),
+    createWrapper('componentWillMount')
 ];
 
 function tryCatchComponent(Component) {
-
-    for (let wrapper of lifeCycleMethods) {
-        wrapper(Component.prototype);
-    }
-
+    lifeCycleMethods.forEach(f => f(Component.prototype));
 
     return Component;
 }
