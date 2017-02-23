@@ -4,7 +4,7 @@ import {mount} from 'enzyme';
 import tryCatchComponent from './try-catch-component';
 
 test('It should catch render errors', () => {
-    WithMount(<TestComponent />, (comp) => {
+    WithMount(<TestComponent some="some"/>, (comp) => {
 
     });
 });

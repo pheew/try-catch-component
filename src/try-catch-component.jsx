@@ -31,7 +31,8 @@ const lifeCycleMethods = [
     createWrapper('componentWillReceiveProps'),
     createWrapper('shouldComponentUpdate'),
     createWrapper('componentWillUpdate'),
-    createWrapper('componentWillMount')
+    createWrapper('componentWillMount'),
+    createWrapper('componentWillUnmount')
 ];
 
 function tryCatchComponent(Component) {
