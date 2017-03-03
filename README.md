@@ -19,7 +19,7 @@ import {PureComponent} from 'react';
 import tryCatchComponent from 'try-catch-component';
 
 
-class MyComponent extends React {
+class MyComponent extends PureComponent {
     render() {
         throw new Error('Oh no!')
     }
