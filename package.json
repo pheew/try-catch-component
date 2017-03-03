@@ -6,8 +6,9 @@
   "repository": {},
   "author": "Bruins Zachtgoed",
   "scripts": {
+    "build": "",
     "test": "jest",
-    "debug": "node --debug-brk ./node_modules/.bin/jest --runInBand"
+    "test:debug": "node --debug-brk ./node_modules/.bin/jest --runInBand"
   },
   "license": "MIT",
   "devDependencies": {

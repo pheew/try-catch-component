@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {PureComponent, PropTypes} from 'react';
 
 function createWrapper(funcName, onError) {
     return function (prototype) {
@@ -21,12 +21,35 @@ function createWrapper(funcName, onError) {
     };
 }
 
-const lifeCycleMethods = [
-    createWrapper('render', function () {
+export class ErrorComponent extends PureComponent {
+    render() {
+        const {error} = this.props;
+
         return (
-            <span>Caught error!</span>
+            <div>
+                <h4>{error.message}</h4>
+                <pre>
+                    {error.stack}
+                </pre>
+            </div>
         );
-    }),
+    }
+}
+ErrorComponent.propTypes = {
+    error: PropTypes.object
+};
+
+const lifeCycleMethods = [
+    createWrapper('render', function(e)  {
+            if (typeof this.renderFallback === 'function') {
+                return this.renderFallback(e);
+            }
+
+            return (
+                <ErrorComponent error={e}/>
+            );
+        }
+    ),
 
     createWrapper('componentWillReceiveProps'),
     createWrapper('shouldComponentUpdate'),
@@ -35,8 +58,8 @@ const lifeCycleMethods = [
     createWrapper('componentWillUnmount')
 ];
 
-function tryCatchComponent(Component) {
-    lifeCycleMethods.forEach(f => f(Component.prototype));
+function tryCatchComponent(Component, renderFallback) {
+    lifeCycleMethods.forEach(function(f) { f(Component.prototype)});
 
     return Component;
 }
