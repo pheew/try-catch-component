@@ -7,7 +7,7 @@
   "author": "Bruins Zachtgoed",
   "scripts": {
     "build": "",
-    "test": "jest",
+    "test": "node ./run/tests.js",
     "test:debug": "node --debug-brk ./node_modules/.bin/jest --runInBand"
   },
   "license": "MIT",
@@ -18,10 +18,15 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "enzyme": "^2.7.1",
+    "gulp": "^3.9.1",
+    "gulp-jest": "^1.0.0",
     "jest": "^19.0.1",
-    "react": "^15.4.2",
+    "jest-junit-reporter": "^1.0.1",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-test-renderer": "^15.4.2"
+  },
+  "dependencies": {
+    "react": "^15.4.2"
   }
 }
