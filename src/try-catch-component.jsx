@@ -22,6 +22,10 @@ function createWrapper(funcName, onError) {
 }
 
 export class ErrorComponent extends PureComponent {
+    static propTypes = {
+        error: PropTypes.object
+    };
+
     render() {
         const {error} = this.props;
 
@@ -35,9 +39,6 @@ export class ErrorComponent extends PureComponent {
         );
     }
 }
-ErrorComponent.propTypes = {
-    error: PropTypes.object
-};
 
 const lifeCycleMethods = [
     createWrapper('render', function(e)  {
