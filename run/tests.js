@@ -1,6 +1,5 @@
 var jest = require('jest-cli');
 
-
 var config = {
     automock: false
 };

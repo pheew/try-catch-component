@@ -23,7 +23,8 @@ function createWrapper(funcName, onError) {
 
             } catch (e) {
                 if (typeof onError === 'function') {
-                    return onError.call(this, e);
+                    // onError receives [arguments..., e]
+                    return onError.apply(this, Array.prototype.slice.call(arguments).concat(e));
                 } else {
                     throw e;
                 }
@@ -33,12 +34,17 @@ function createWrapper(funcName, onError) {
 }
 
 const lifeCycleMethods = [
-    createWrapper('render', function(e) {
+    createWrapper('render', function (e) {
             return <ErrorComponent error={e}/>;
         }
     ),
 
-    createWrapper('componentWillReceiveProps'),
+    createWrapper('componentWillReceiveProps', function(nextProps, e) {
+        // console.error(e, {
+        //     props: this.props,
+        //     nextProps
+        // });
+    }),
     createWrapper('shouldComponentUpdate'),
     createWrapper('componentWillUpdate'),
     createWrapper('componentWillMount'),

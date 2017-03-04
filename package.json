@@ -5,6 +5,9 @@
   "main": "index.js",
   "repository": {},
   "author": "Bruins Zachtgoed",
+  "jest": {
+    "testPathIgnorePatterns": ["__tests__/utils.js"]
+  },
   "scripts": {
     "build": "",
     "test:watch": "jest --watch",

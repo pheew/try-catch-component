@@ -3,7 +3,7 @@
 
 # try-catch-component
 
-A React component wrapper that catches errors
+A React component wrapper that catches errors.
 
 ## Installation
 
