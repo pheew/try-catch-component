@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
 import {mount} from 'enzyme';
 
-import tryCatchComponent, {ErrorComponent} from './try-catch-component';
-
+import tryCatchComponent from './try-catch-component';
+import ErrorComponent from './error.jsx';
 
 test('catch render errors and render ErrorComponent instead', () => {
     const TestComponent = tryCatchComponent(
@@ -25,7 +25,7 @@ test('catch render errors and call renderFallback instead', () => {
                 throw new Error('SOME');
             }
 
-            renderFallback(error) {
+            catchRender(error) {
                 return (
                     <span>{error.message}</span>
                 );
