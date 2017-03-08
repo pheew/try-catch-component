@@ -1,11 +1,14 @@
 {
   "name": "try-catch-component",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Makes for a friendlier component",
   "main": "./dist/index.js",
   "repository": {},
   "author": "Bruins Zachtgoed",
-  "files": ["./dist"],
+  "files": [
+    "dist/index.js",
+    "src/"
+  ],
   "jest": {
     "testPathIgnorePatterns": ["__tests__/utils.js"]
   },
