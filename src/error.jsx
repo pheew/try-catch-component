@@ -1,6 +1,6 @@
 import React, {PureComponent, PropTypes} from 'react';
 
-class ErrorComponent extends PureComponent {
+export class ErrorComponent extends PureComponent {
     static propTypes = {
         error: PropTypes.object
     };
@@ -18,5 +18,3 @@ class ErrorComponent extends PureComponent {
         );
     }
 }
-
-export default ErrorComponent;

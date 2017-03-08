@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorComponent from './error.jsx';
+import {ErrorComponent} from './error.jsx';
 
 function createWrapper(funcName, onError) {
     return function (prototype) {
