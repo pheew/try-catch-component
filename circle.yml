@@ -13,3 +13,9 @@ dependencies:
 test:
   override:
     - yarn test
+deployment:
+  production:
+    tag: /v\d.*/
+    commands:
+      - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
+      - npm publish
