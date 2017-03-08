@@ -1,5 +1,23 @@
-import React from 'react';
-import {ErrorComponent} from './error.jsx';
+import React, {PropTypes, PureComponent} from 'react';
+
+class ErrorComponent extends PureComponent {
+    static propTypes = {
+        error: PropTypes.object
+    };
+
+    render() {
+        const {error} = this.props;
+
+        return (
+            <div>
+                <h4>{error.message}</h4>
+                <pre>
+                    {error.stack}
+                </pre>
+            </div>
+        );
+    }
+}
 
 function createWrapper(funcName, onError) {
     return function (prototype) {
