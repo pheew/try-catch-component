@@ -13,6 +13,9 @@ dependencies:
 test:
   override:
     - yarn test
+compile:
+  override:
+    - npm build
 deployment:
   production:
     tag: /v\d.*/
