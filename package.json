@@ -3,7 +3,11 @@
   "version": "0.0.6",
   "description": "Makes for a friendlier component",
   "main": "./dist/index.js",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pheew/try-catch-component.git"
+  },
+  "homepage": "https://github.com/pheew/try-catch-component",
   "author": "Bruins Zachtgoed",
   "files": [
     "dist/index.js",
